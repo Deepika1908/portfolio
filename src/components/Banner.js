@@ -5,13 +5,13 @@ import { ArrowRightCircle } from 'react-bootstrap-icons';
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
 
-export const Banner = () => {
+const Banner = () => {
   const [loopNum, setLoopNum] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [text, setText] = useState('');
   const [delta, setDelta] = useState(300 - Math.random() * 100);
   const [index, setIndex] = useState(1);
-  const toRotate = [ "Business Analyst", "Financial markets ","Stakeholder" ];
+  const toRotate = ["Business Analyst", "Financial markets", "Stakeholder"];
   const period = 2000;
 
   useEffect(() => {
@@ -20,7 +20,7 @@ export const Banner = () => {
     }, delta);
 
     return () => { clearInterval(ticker) };
-  }, [text])
+  }, [text]);
 
   const tick = () => {
     let i = loopNum % toRotate.length;
@@ -45,33 +45,41 @@ export const Banner = () => {
     } else {
       setIndex(prevIndex => prevIndex + 1);
     }
-  }
+  };
 
   return (
     <section className="banner" id="home">
       <Container>
-        <Row className="aligh-items-center">
+        <Row className="align-items-center">
           <Col xs={12} md={6} xl={7}>
             <TrackVisibility>
               {({ isVisible }) =>
-              <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
-                <span className="tagline">Welcome to my Portfolio</span>
-                <h1>{`Hi! I'm Preeti Kushwaha`}<br/> <span className="txt-rotate" dataPeriod="1000" data-rotate='[ "Business Analyst ", "Financial markets ","Stakeholder" ]'><span className="wrap">{text}</span></span></h1>
-                  <p>I am Preeti Mukesh Kumar from Mumbai, Maharashtra. I am currently pursuing my Bachelor of Business Administration (BBA) with a specialization in financial markets at the Mittal School of Business, Lovely Professional University. My core interest lies in investment, and I aspire to build a career in the same field. Upon completion of my BBA, I plan to pursue an MBA and further specialize in investment banking..</p>
+                <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
+                  <span className="tagline">Welcome to my Portfolio</span>
+                  <h1>{`Hi! I'm Preeti Kushwaha`}<br /> 
+                    <span className="txt-rotate" dataPeriod="1000" data-rotate='[ "Business Analyst", "Financial markets", "Stakeholder" ]'>
+                      <span className="wrap">{text}</span>
+                    </span>
+                  </h1>
+                  <p>I am Preeti Mukesh Kumar from Mumbai, Maharashtra. I am currently pursuing my Bachelor of Business Administration (BBA) with a specialization in financial markets at the Mittal School of Business, Lovely Professional University. My core interest lies in investment, and I aspire to build a career in the same field. Upon completion of my BBA, I plan to pursue an MBA and further specialize in investment banking.</p>
                   <button onClick={() => console.log('connect')}>Let’s Connect <ArrowRightCircle size={25} /></button>
-              </div>}
+                </div>
+              }
             </TrackVisibility>
           </Col>
           <Col xs={12} md={6} xl={5}>
             <TrackVisibility>
               {({ isVisible }) =>
                 <div className={isVisible ? "animate__animated animate__zoomIn" : ""}>
-                  <img src={headerImg} alt="Header Img"/>
-                </div>}
+                  <img src={headerImg} alt="Header Img" />
+                </div>
+              }
             </TrackVisibility>
           </Col>
         </Row>
       </Container>
     </section>
-  )
-}
+  );
+};
+
+export default Banner;
