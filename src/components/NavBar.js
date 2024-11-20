@@ -1,264 +1,37 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom"; // Import Link and useLocation
+import { Link, useLocation } from "react-router-dom";
+import { Navbar, Nav, Container } from "react-bootstrap";
 import "../styles/NavBar.css";
 
 const NavBar = () => {
   const location = useLocation(); // Use useLocation to get the current pathname
 
   return (
-    <nav className="navbar">
-      <div className="navbar-brand">LOGO</div>
-      <ul className="nav-links">
-        <li>
-          <Link
-            className={`nav-link ${location.pathname === "/" ? "active" : ""}`}
-            to="/"
-          >
-            Home
-          </Link>
-        </li>
-        <li>
-          <Link
-            className={`nav-link ${
-              location.pathname === "/skills" ? "active" : ""
-            }`}
-            to="/skills"
-          >
-            Skills
-          </Link>
-        </li>
-        <li>
-          <Link
-            className={`nav-link ${
-              location.pathname === "/exp" ? "active" : ""
-            }`}
-            to="/exp"
-          >
-            Work Experience
-          </Link>
-        </li>
-        <li>
-          <Link
-            className={`nav-link ${
-              location.pathname === "/resume" ? "active" : ""
-            }`}
-            to="/resume"
-          >
-            Resume
-          </Link>
-        </li>
-        <li>
-          <Link
-            className={`nav-link ${
-              location.pathname === "/contact-me" ? "active" : ""
-            }`}
-            to="/contact-me"
-          >
-            Contact Me
-          </Link>
-        </li>
-        <li>
-          <a
-            className="social-link"
-            href="https://www.linkedin.com/in/preetikushwaha13/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            in
-          </a>
-        </li>
-      </ul>
-    </nav>
+    <Navbar expand="lg" className="navbar-custom">
+      <Container>
+        <Navbar.Brand as={Link} to="/" className="navbar-brand">LOGO</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="ms-auto">
+            <Nav.Link as={Link} to="/" className={`nav-link ${location.pathname === "/" ? "active" : ""}`}>Home</Nav.Link>
+            <Nav.Link as={Link} to="/skills" className={`nav-link ${location.pathname === "/skills" ? "active" : ""}`}>Skills</Nav.Link>
+            <Nav.Link as={Link} to="/exp" className={`nav-link ${location.pathname === "/exp" ? "active" : ""}`}>Experience</Nav.Link>
+            <Nav.Link as={Link} to="/resume" className={`nav-link ${location.pathname === "/resume" ? "active" : ""}`}>Resume</Nav.Link>
+            <Nav.Link as={Link} to="/contact-me" className={`nav-link ${location.pathname === "/contact-me" ? "active" : ""}`}>Contact Me</Nav.Link>
+            <li>
+              <a
+                className="social-link"
+                href="https://www.linkedin.com/in/preetikushwaha13/"
+                target="_blank"
+                rel="noopener noreferrer">
+                in
+              </a>
+            </li>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 };
 
 export default NavBar;
-
-
-// import { useState, useEffect } from "react";
-// import { Navbar, Nav, Container } from "react-bootstrap";
-// import logo from '../assets/img/logo.svg';
-// import navIcon1 from '../assets/img/nav-icon1.svg';
-// import navIcon2 from '../assets/img/nav-icon2.svg';
-// import navIcon3 from '../assets/img/nav-icon3.svg';
-// import { HashLink } from 'react-router-hash-link';
-// import {
-//   BrowserRouter as Router
-// } from "react-router-dom";
-
-// export const NavBar = () => {
-
-//   const [activeLink, setActiveLink] = useState('home');
-//   const [scrolled, setScrolled] = useState(false);
-
-//   useEffect(() => {
-//     const onScroll = () => {
-//       if (window.scrollY > 50) {
-//         setScrolled(true);
-//       } else {
-//         setScrolled(false);
-//       }
-//     }
-
-//     window.addEventListener("scroll", onScroll);
-
-//     return () => window.removeEventListener("scroll", onScroll);
-//   }, [])
-
-//   const onUpdateActiveLink = (value) => {
-//     setActiveLink(value);
-//   }
-
-//   return (
-//     <Router>
-//       <Navbar expand="md" className={scrolled ? "scrolled" : ""}>
-//         <Container>
-//           <Navbar.Brand href="/">
-//             <img src={logo} alt="Logo" />
-//           </Navbar.Brand>
-//           <Navbar.Toggle aria-controls="basic-navbar-nav">
-//             <span className="navbar-toggler-icon"></span>
-//           </Navbar.Toggle>
-//           <Navbar.Collapse id="basic-navbar-nav">
-//             <Nav className="ms-auto">
-//               <Nav.Link href="#home" className={activeLink === 'home' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('home')}>Home</Nav.Link>
-//               <Nav.Link href="#skills" className={activeLink === 'skills' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('skills')}>Skills</Nav.Link>
-//               <Nav.Link href="#projects" className={activeLink === 'projects' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('projects')}>Work Experience</Nav.Link>
-//             </Nav>
-//             <span className="navbar-text">
-//               <div className="social-icon">
-//                 <a href="#"><img src={navIcon1} alt="" /></a>
-//                 <a href="#"><img src={navIcon2} alt="" /></a>
-//                 <a href="#"><img src={navIcon3} alt="" /></a>
-//               </div>
-//               <HashLink to='#connect'>
-//                 <button className="vvd"><span>Let’s Connect</span></button>
-//               </HashLink>
-//             </span>
-//           </Navbar.Collapse>
-//         </Container>
-//       </Navbar>
-//     </Router>
-//   )
-// }
-
-// export default NavBar;
-
-// import React, { useState, useEffect } from 'react';
-// import { Navbar, Nav, Container } from 'react-bootstrap';
-// import { BrowserRouter as Router } from 'react-router-dom';
-// import logo from '../assets/img/logo.svg'; // Ensure this path is correct
-// import navIcon1 from '../assets/img/nav-icon1.svg'; // Ensure this path is correct
-
-// const NavBar = () => {
-//   const [scrolled, setScrolled] = useState(false);
-//   const [activeLink, setActiveLink] = useState('home');
-
-//   useEffect(() => {
-//     const onScroll = () => {
-//       if (window.scrollY > 50) {
-//         setScrolled(true);
-//       } else {
-//         setScrolled(false);
-//       }
-//     };
-
-//     window.addEventListener('scroll', onScroll);
-
-//     return () => window.removeEventListener('scroll', onScroll);
-//   }, []);
-
-//   const onUpdateActiveLink = (value) => {
-//     setActiveLink(value);
-//   };
-
-//   return (
-//     <Router>
-//       <Navbar expand="md" className={scrolled ? "scrolled" : ""}>
-//         <Container>
-//           <Navbar.Brand href="/">
-//             <img src={logo} alt="Logo" />
-//           </Navbar.Brand>
-//           <Navbar.Toggle aria-controls="basic-navbar-nav">
-//             <span className="navbar-toggler-icon"></span>
-//           </Navbar.Toggle>
-//           <Navbar.Collapse id="basic-navbar-nav">
-//             <Nav className="ms-auto">
-//               <Nav.Link href="#home" className={activeLink === 'home' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('home')}>Home</Nav.Link>
-//               <Nav.Link href="#skills" className={activeLink === 'skills' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('skills')}>Skills</Nav.Link>
-//               <Nav.Link href="#projects" className={activeLink === 'projects' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('projects')}>Work Experience</Nav.Link>
-//               <Nav.Link href="#resume" className={activeLink === 'resume' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('resume')}>Resume</Nav.Link>
-//             </Nav>
-//             <span className="navbar-text">
-//               <div className="social-icon">
-//                 <a href="#"><img src={navIcon1} alt="" /></a>
-//               </div>
-//             </span>
-//           </Navbar.Collapse>
-//         </Container>
-//       </Navbar>
-//     </Router>
-//   );
-// };
-
-// export default NavBar;
-
-
-// import React, { useState, useEffect } from 'react';
-// import { Navbar, Nav, Container } from 'react-bootstrap';
-// import { BrowserRouter as Router } from 'react-router-dom';
-// import logo from '../assets/img/logo.svg'; // Ensure this path is correct
-// import navIcon1 from '../assets/img/nav-icon1.svg'; // Ensure this path is correct
-
-// const NavBar = () => {
-//   const [scrolled, setScrolled] = useState(false);
-//   const [activeLink, setActiveLink] = useState('home');
-
-//   useEffect(() => {
-//     const onScroll = () => {
-//       if (window.scrollY > 50) {
-//         setScrolled(true);
-//       } else {
-//         setScrolled(false);
-//       }
-//     };
-
-//     window.addEventListener('scroll', onScroll);
-
-//     return () => window.removeEventListener('scroll', onScroll);
-//   }, []);
-
-//   const onUpdateActiveLink = (value) => {
-//     setActiveLink(value);
-//   };
-
-//   return (
-//     <Router>
-//       <Navbar expand="md" className={scrolled ? "scrolled" : ""}>
-//         <Container>
-//           <Navbar.Brand href="/">
-//             <img src={logo} alt="Logo" />
-//           </Navbar.Brand>
-//           <Navbar.Toggle aria-controls="basic-navbar-nav">
-//             <span className="navbar-toggler-icon"></span>
-//           </Navbar.Toggle>
-//           <Navbar.Collapse id="basic-navbar-nav">
-//             <Nav className="ms-auto">
-//               <Nav.Link href="#home" className={activeLink === 'home' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('home')}>Home</Nav.Link>
-//               <Nav.Link href="#skills" className={activeLink === 'skills' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('skills')}>Skills</Nav.Link>
-//               <Nav.Link href="#projects" className={activeLink === 'projects' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('projects')}>Work Experience</Nav.Link>
-//               <Nav.Link href="#resume" className={activeLink === 'resume' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('resume')}>Resume</Nav.Link>
-//             </Nav>
-//             <span className="navbar-text">
-//               <div className="social-icon">
-//                 <a href="#"><img src={navIcon1} alt="" /></a>
-//               </div>
-//             </span>
-//           </Navbar.Collapse>
-//         </Container>
-//       </Navbar>
-//     </Router>
-//   );
-// };
-
-// export default NavBar;

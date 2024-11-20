@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import { Link } from 'react-router-dom';
 import headerImg from "../assets/svgs/undraw_business_analytics.svg";
 import { ArrowRightCircle } from 'react-bootstrap-icons';
 import 'animate.css';
@@ -60,9 +61,11 @@ const Home = () => {
                     Upon completion of my BBA, I plan to pursue an MBA and further specialize in
                     investment banking.
                   </p>
-                  <button onClick={() => console.log('connect')}>
-                    Let’s Connect <ArrowRightCircle size={25} />
-                  </button>
+                  <Link to="/contact-me">
+                    <button>
+                      Let’s Connect <ArrowRightCircle size={25} />
+                    </button>
+                  </Link>
                 </div>
               )}
             </TrackVisibility>

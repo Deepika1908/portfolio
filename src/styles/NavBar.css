@@ -26,7 +26,8 @@
   
   /* Navigation Links Container */
   .nav-links {
-    display: flex; /* Align links horizontally */
+    display: flex; 
+    text: bold;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -44,11 +45,12 @@
     opacity: 0.8;
     transition: opacity 0.3s ease;
   }
-  
-  .nav-link:hover,
-  .nav-link.active {
-    opacity: 1; /* Highlight active or hovered links */
-  }
+
+  .navbar-custom .nav-link:hover,
+  .navbar-custom .nav-link.active {
+  color: wheat;
+  opacity: 1;
+}
   
   /* Social Media Icon */
   .social-link {
@@ -58,12 +60,15 @@
     border: 1px solid white;
     border-radius: 50%;
     padding: 5px 10px;
-    text-decoration: none;
-    transition: all 0.3s ease;
+    margin-left: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
   
   .social-link:hover {
-    background-color: white;
+    background-color: wheat;
     color: #121212;
   }
   
