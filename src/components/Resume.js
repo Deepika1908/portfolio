@@ -1,16 +1,24 @@
 import React from 'react';
+// import '../styles/Resume.css';
 
 const Resume = () => {
-  const handleDownload = () => {
-    const resumePath = 'C:/Users/deepi/OneDrive/Desktop/Project/Portfolio/portfolio/src/assets/Preeti.pdf'; // Update with the correct path to your resume file
-    window.open(resumePath, '_blank');
-  };
-
   return (
-    <div>
-      <h1>Resume</h1>
-      <button onClick={handleDownload}>Download Resume</button>
-    </div>
+    <section className="resume">
+      <div className="resume-content">
+        <iframe
+          src={`${process.env.PUBLIC_URL}/Preeti.pdf`}
+          title="Resume"
+          className="resume-frame"
+        ></iframe>
+        <a
+          href={`${process.env.PUBLIC_URL}/Preeti.pdf`}
+          download="MyResume.pdf"
+          className="btn download-btn"
+        >
+          Download Resume
+        </a>
+      </div>
+    </section>
   );
 };
 

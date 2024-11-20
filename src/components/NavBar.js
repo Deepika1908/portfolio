@@ -30,9 +30,9 @@ const NavBar = () => {
         <li>
           <Link
             className={`nav-link ${
-              location.pathname === "/work-experience" ? "active" : ""
+              location.pathname === "/exp" ? "active" : ""
             }`}
-            to="/work-experience"
+            to="/exp"
           >
             Work Experience
           </Link>
@@ -45,6 +45,16 @@ const NavBar = () => {
             to="/resume"
           >
             Resume
+          </Link>
+        </li>
+        <li>
+          <Link
+            className={`nav-link ${
+              location.pathname === "/contact-me" ? "active" : ""
+            }`}
+            to="/contact-me"
+          >
+            Contact Me
           </Link>
         </li>
         <li>

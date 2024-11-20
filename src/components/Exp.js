@@ -1,84 +1,38 @@
-import { Container, Row, Col, Tab, Nav } from "react-bootstrap";
-import { ExpCards } from "./ExpCards";
-import projImg1 from "../assets/img/project-img1.png";
-import projImg2 from "../assets/img/project-img2.png";
-import projImg3 from "../assets/img/project-img3.png";
-import colorSharp2 from "../assets/img/color-sharp2.png";
-import 'animate.css';
-import TrackVisibility from 'react-on-screen';
+import React from 'react';
+// import '../styles/Exp.css';
+import internImage from '../assets/img/intern.jpg';
 
 const Exp = () => {
-
-  const projects = [
-    {
-      title: "Business Startup",
-      description: "Design & Development",
-      imgUrl: projImg1,
+  const experienceList = [
+    { 
+      title: 'Intern', 
+      company: 'StartUp Inc.', 
+      duration: 'Jun 2019 - Dec 2019', 
+      description: 'Worked on frontend development and UI/UX design.', 
+      image: internImage 
     },
-    {
-      title: "Business Startup",
-      description: "Design & Development",
-      imgUrl: projImg2,
-    },
-    {
-      title: "Business Startup",
-      description: "Design & Development",
-      imgUrl: projImg3,
-    },
+    // Add more experiences here
   ];
 
   return (
-    <section className="project" id="projects">
-      <Container>
-        <Row>
-          <Col size={12}>
-            <TrackVisibility>
-              {({ isVisible }) =>
-                <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
-                  <h2>Projects</h2>
-                  <p>Here are some of the projects I have worked on.</p>
-                  <Tab.Container id="projects-tabs" defaultActiveKey="first">
-                    <Nav variant="pills" className="nav-pills mb-5 justify-content-center align-items-center" id="pills-tab">
-                      <Nav.Item>
-                        <Nav.Link eventKey="first">Tab 1</Nav.Link>
-                      </Nav.Item>
-                      <Nav.Item>
-                        <Nav.Link eventKey="second">Tab 2</Nav.Link>
-                      </Nav.Item>
-                      <Nav.Item>
-                        <Nav.Link eventKey="third">Tab 3</Nav.Link>
-                      </Nav.Item>
-                    </Nav>
-                    <Tab.Content>
-                      <Tab.Pane eventKey="first">
-                        <Row>
-                          {
-                            projects.map((project, index) => {
-                              return (
-                                <ExpCards
-                                  key={index}
-                                  {...project}
-                                />
-                              )
-                            })
-                          }
-                        </Row>
-                      </Tab.Pane>
-                      <Tab.Pane eventKey="second">
-                        <p>Content for Tab 2</p>
-                      </Tab.Pane>
-                      <Tab.Pane eventKey="third">
-                        <p>Content for Tab 3</p>
-                      </Tab.Pane>
-                    </Tab.Content>
-                  </Tab.Container>
-                </div>}
-            </TrackVisibility>
-          </Col>
-        </Row>
-      </Container>
-      <img className="background-image-right" src={colorSharp2} alt="Image" />
+    
+    <div>
+      {/* <h2 className='txt'>Experience</h2> */}
+      <section className="experience">
+      <br/>
+      <div className="exp">
+        {experienceList.map((exp, index) => (
+          <div key={index} className="experience-card">
+            <img src={exp.image} alt={exp.title} className="experience-image" />
+            <h3>{exp.title}</h3>
+            <p><strong>{exp.company}</strong></p>
+            <p>{exp.duration}</p>
+            <p>{exp.description}</p>
+          </div>
+        ))}
+      </div>
     </section>
+    </div>
   );
 };
 
