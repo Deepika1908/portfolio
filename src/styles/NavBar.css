@@ -1,0 +1,69 @@
+/* Navbar Container */
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Space between logo and links */
+    align-items: center; /* Align items vertically */
+    padding: 20px 40px;
+    background-color: transparent;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+    transition: background-color 0.3s ease;
+  }
+  
+  .navbar.scrolled {
+    background-color: #121212; /* Dark background after scroll */
+  }
+  
+  /* Logo */
+  .navbar-brand {
+    font-size: 24px;
+    font-weight: 700;
+    color: white;
+    text-decoration: none;
+  }
+  
+  /* Navigation Links Container */
+  .nav-links {
+    display: flex; /* Align links horizontally */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Individual Links */
+  .nav-links li {
+    margin-left: 20px; /* Space between links */
+  }
+  
+  .nav-link {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+  }
+  
+  .nav-link:hover,
+  .nav-link.active {
+    opacity: 1; /* Highlight active or hovered links */
+  }
+  
+  /* Social Media Icon */
+  .social-link {
+    font-size: 16px;
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    border-radius: 50%;
+    padding: 5px 10px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  
+  .social-link:hover {
+    background-color: white;
+    color: #121212;
+  }
+  
